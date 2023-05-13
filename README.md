@@ -15,6 +15,7 @@ python tictactoe.py
 ## Building from Source
 
 prerequisuites:
+
 [python](https://www.python.org/downloads/)
 
 [pyinstaller](https://pypi.org/project/pyinstaller/)

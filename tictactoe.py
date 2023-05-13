@@ -1,3 +1,12 @@
+import os
+
+
+def clear():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
 def printBoard(board):
     print(f'| {board[0]} | {board[1]} | {board[2]} |')
     print(f'| {board[3]} | {board[4]} | {board[5]} |')
@@ -44,7 +53,7 @@ def gameTie(board):
         else:
             return False
 
-def gameRunning():
+def gameRunning(board):
     if not (gameWon(board) or gameTie(board)):
         return True
     else:
@@ -59,26 +68,56 @@ def currentPlayer():
         player = 'X'
     return player
 
-player = ''
+
+def gameReset():
+    global player
+    global turn
+    global board
+    clear()
+    player = '*'
+    turn = 'X'
+    board = ['-', '-', '-',
+            '-', '-', '-',
+            '-', '-', '-']
+
+
+def ticTacToe():
+    global player
+    global turn
+    global board
+    while gameRunning(board):
+        printBoard(board)
+        box = int(input(f'{turn} select a box between 1-9: '))
+        if board[box - 1] == '-':
+            board[box - 1] = currentPlayer()
+            turn = 'X' if turn == 'O' else 'O'
+            clear()
+        else:
+            print(f'{box} is already Occupied, choose a different box\n')
+            continue
+
+    clear()
+    printBoard(board)
+
+    if gameTie(board):
+        print('Its a tie')
+    elif gameWon(board):
+        print(f'{player}  Won')
+
+
+def playAgain():
+    play_again = input("do you want to play again? (y/N): ")
+    if play_again.lower() == 'y':
+        gameReset()
+        ticTacToe()
+        playAgain()
+
+
+player = 'P'
 turn = 'X'
 board = ['-', '-', '-',
-        '-', '-', '-',
-        '-', '-', '-']
+         '-', '-', '-',
+         '-', '-', '-']
 
-while gameRunning():
-    printBoard(board)
-    box = int(input(f'{turn} select a box between 1-9: '))
-    if board[box - 1] == '-':
-        board[box - 1] = currentPlayer()
-        turn = 'X' if turn == 'O' else 'O'
-    else:
-        print(f'{box} is already Occupied, choose a different box')
-        continue
-
-printBoard(board)
-
-if gameTie(board):
-    print('Its a draw')
-elif gameWon(board):
-    print(f'{player} Won')
-
+ticTacToe()
+playAgain()

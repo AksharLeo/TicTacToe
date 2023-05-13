@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=TicTacToe
+Exec=tictactoe
+Icon=icon
+Type=Application
+Terminal=true
+Categories=Game

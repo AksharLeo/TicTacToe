@@ -36,3 +36,8 @@ pyinstaller --onefile --console tictactoe.py
 
 the application will be in `TicTacToe/dist/`
 
+
+
+# credits
+
+icon: Tic Tac Toe by Prerak Patel from <a href="https://thenounproject.com/browse/icons/term/tic-tac-toe/" target="_blank" title="Tic Tac Toe Icons">Noun Project</a>

@@ -80,6 +80,12 @@ def gameReset():
             '-', '-', '-',
             '-', '-', '-']
 
+def boxIsValid(box):
+    if (box >= 1 and box <= 9):
+        return True
+    else:
+        return False
+
 
 def ticTacToe():
     global player
@@ -87,7 +93,14 @@ def ticTacToe():
     global board
     while gameRunning(board):
         printBoard(board)
-        box = int(input(f'{turn} select a box between 1-9: '))
+        x = True
+        while x:
+            try:
+                box = int(input(f'{turn} select a box between 1-9: '))
+                if boxIsValid(box) : x = False; break
+            except(TypeError, ValueError):
+                continue
+            
         if board[box - 1] == '-':
             board[box - 1] = currentPlayer()
             turn = 'X' if turn == 'O' else 'O'

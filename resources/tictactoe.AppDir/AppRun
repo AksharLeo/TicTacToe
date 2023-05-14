@@ -1,5 +1,6 @@
 #!/bin/bash
-SELF=$(readlink -f "$0")
-HERE=${SELF%/}
-EXEC="${HERE/usr/bin/tictatoe"
+
+
+HERE="$(dirname "$(readlink -f "${0}")")"
+EXEC="${HERE}/usr/bin/tictactoe"
 exec "${EXEC}"

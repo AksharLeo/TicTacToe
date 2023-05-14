@@ -90,5 +90,10 @@ cd ../..
 ```ARCH=i686 /path/to/appimagetool resources/tictactoe.AppDir```
 
 
+# Known Issues
+
+The AppImages aren't working
+workaround: open the appimage through a terminal
+
 # credits
 icon: Tic Tac Toe by Prerak Patel from <a href="https://thenounproject.com/browse/icons/term/tic-tac-toe/" target="_blank" title="Tic Tac Toe Icons">Noun Project</a>

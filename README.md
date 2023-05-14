@@ -93,6 +93,7 @@ cd ../..
 # Known Issues
 
 The AppImages aren't working
+
 workaround: open the appimage through a terminal
 
 # credits

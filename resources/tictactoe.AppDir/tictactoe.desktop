@@ -4,4 +4,4 @@ Exec=tictactoe
 Icon=icon
 Type=Application
 Terminal=true
-Categories=Game
+Categories=Application

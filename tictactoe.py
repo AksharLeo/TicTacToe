@@ -1,6 +1,5 @@
 import os
 
-
 def clear():
     if os.name == 'nt':
         os.system('cls')
@@ -60,26 +59,6 @@ def gameRunning(board):
         return False
 
 
-def currentPlayer():
-    global player
-    if player == 'X':
-        player = 'O'
-    else:
-        player = 'X'
-    return player
-
-
-def gameReset():
-    global player
-    global turn
-    global board
-    clear()
-    player = '*'
-    turn = 'X'
-    board = ['-', '-', '-',
-            '-', '-', '-',
-            '-', '-', '-']
-
 def boxIsValid(box):
     if (box >= 1 and box <= 9):
         return True
@@ -87,50 +66,8 @@ def boxIsValid(box):
         return False
 
 
-def ticTacToe():
-    global player
-    global turn
-    global board
-    while gameRunning(board):
-        printBoard(board)
-        x = True
-        while x:
-            try:
-                box = int(input(f'{turn} select a box between 1-9: '))
-                if boxIsValid(box) : x = False; break
-            except(TypeError, ValueError):
-                continue
-            
-        if board[box - 1] == '-':
-            board[box - 1] = currentPlayer()
-            turn = 'X' if turn == 'O' else 'O'
-            clear()
-        else:
-            print(f'{box} is already Occupied, choose a different box\n')
-            continue
-
-    clear()
-    printBoard(board)
-
-    if gameTie(board):
-        print('Its a tie')
-    elif gameWon(board):
-        print(f'{player}  Won')
-
-
-def playAgain():
-    play_again = input("do you want to play again? (y/N): ")
-    if play_again.lower() == 'y':
-        gameReset()
-        ticTacToe()
-        playAgain()
-
-
-player = 'P'
-turn = 'X'
-board = ['-', '-', '-',
-         '-', '-', '-',
-         '-', '-', '-']
-
-ticTacToe()
-playAgain()
+# player = '*'
+# turn = 'X'
+# board = ['-', '-', '-',
+#         '-', '-', '-',
+#         '-', '-', '-']

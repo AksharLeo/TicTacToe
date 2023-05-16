@@ -40,7 +40,7 @@ def gameDifficulty():
         try:
             difficulty = input('difficulty - Easy / Medium / Hard (E / M / H): ')
             if difficulty.lower() in ['e', 'm', 'h']: break
-        except:
+        except(TypeError,ValueError):
             continue
     return difficulty.lower()
 

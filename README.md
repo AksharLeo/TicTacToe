@@ -32,7 +32,7 @@ prerequisuites:
 ```
 git clone https://github.com/AksharLeo/TicTacToe
 cd TicTacToe
-python tictactoe.py
+python main.py
 ```
 
 
